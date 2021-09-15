@@ -1,0 +1,52 @@
+image: node:latest
+
+stages:
+  - install
+  - build
+  - test
+  - bump-version
+  - publish
+
+cache:
+  paths:
+    - build/
+    - node_modules/
+
+install deps:
+  stage: install
+  script:
+    - npm run ci
+  artifacts:
+    paths:
+      - node_modules/
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+
+test:
+  stage: test
+  script:
+    - npm run test
+
+bump-version:
+  stage: bump-version
+  script:
+    - npm version patch
+  artifacts:
+    paths:
+      - package.json
+      - package-lock.json
+
+publish:
+  stage: publish
+  script:
+    - cd ./
+    - pkg_name=$(node -p -e "require('./package.json').name")
+    - pkg_vers=$(node -p -e "require('./package.json').version")
+    - echo "About to publish $pkg_name@$pkg_vers"
+    - npm publish
