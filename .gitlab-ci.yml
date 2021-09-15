@@ -15,7 +15,7 @@ cache:
 install deps:
   stage: install
   script:
-    - npm run ci
+    - npm ci
   artifacts:
     paths:
       - node_modules/
