@@ -50,3 +50,5 @@ publish:
     - pkg_vers=$(node -p -e "require('./package.json').version")
     - echo "About to publish $pkg_name@$pkg_vers"
     - npm publish
+  variables:
+    NPM_TOKEN: $NPM_TOKEN
