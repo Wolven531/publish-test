@@ -1,12 +1,13 @@
 {
-  "name": "@wolven531/my-published-app",
-  "version": "0.0.4",
+  "name": "my-published-app",
+  "version": "0.0.5",
   "author": {
     "email": "anthony.williams.cs@gmail.com",
     "name": "Anthony Williams",
     "url": "https://github.com/Wolven531/publish-test"
   },
   "description": "NPM package to practice publishing",
+  "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/wolven531/publish-test.git"
