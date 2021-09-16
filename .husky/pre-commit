@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm version --no-git-tag-version patch
+npm version --no-git-tag-version patch && git add package*
