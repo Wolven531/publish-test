@@ -4,7 +4,6 @@ stages:
   - install
   - build
   - test
-  - bump-version
   - publish
 
 cache:
@@ -33,14 +32,15 @@ test:
   script:
     - npm run test
 
-bump-version:
-  stage: bump-version
-  script:
-    - npm version patch
-  artifacts:
-    paths:
-      - package.json
-      - package-lock.json
+## bumping is handled prior to commit, using husky
+# bump-version:
+#   stage: bump-version
+#   script:
+#     - npm version patch
+#   artifacts:
+#     paths:
+#       - package.json
+#       - package-lock.json
 
 publish:
   stage: publish
