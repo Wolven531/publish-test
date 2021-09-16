@@ -11,6 +11,8 @@ default:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
       - .npm/
+      - build/
+      - node_modules/
 
 variables:
   NPM_TOKEN: ${CI_JOB_TOKEN}
@@ -20,11 +22,6 @@ stages:
   - build
   - test
   - publish
-
-cache:
-  paths:
-    - build/
-    - node_modules/
 
 install deps:
   stage: install
