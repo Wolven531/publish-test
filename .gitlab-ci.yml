@@ -48,7 +48,7 @@ publish:
     - cd ./
     - pkg_name=$(node -p -e "require('./package.json').name")
     - pkg_vers=$(node -p -e "require('./package.json').version")
-    - echo "About to publish $pkg_name@$pkg_vers"
+    - echo "About to publish $pkg_name@$pkg_vers using token $NPM_TOKEN"
     - npm publish
   variables:
     NPM_TOKEN: $NPM_TOKEN

@@ -1,6 +1,6 @@
 {
   "name": "my-published-app",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": {
     "email": "anthony.williams.cs@gmail.com",
     "name": "Anthony Williams",
@@ -8,6 +8,10 @@
   },
   "description": "NPM package to practice publishing",
   "private": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/wolven531/publish-test.git"
