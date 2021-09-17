@@ -67,7 +67,8 @@ publish:
         echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=https://registry.npmjs.org:_authToken=${NPM_TOKEN}"
       } | tee --append .npmrc
   script:
-    - cd ./
+    # - pkg_name=$(node -p -e "require('./package.json').name")
+    # - pkg_vers=$(node -p -e "require('./package.json').version")
     - pkg_name=$(npm pkg get name)
     - pkg_vers=$(npm pkg get version)
     - echo "About to publish $pkg_name@$pkg_vers"
