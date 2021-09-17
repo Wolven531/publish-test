@@ -1,12 +1,12 @@
 default:
   image: node:latest
-  before_script:
-    - npm ci --cache .npm --prefer-offline
-    - |
-      {
-        echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
-        echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
-      } | tee --append .npmrc
+  # before_script:
+  #   - npm ci --cache .npm --prefer-offline
+  #   - |
+  #     {
+  #       echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+  #       echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
+  #     } | tee --append .npmrc
     #   {
     #     echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
     #     echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${NPM_TOKEN}"
@@ -18,8 +18,8 @@ default:
       - build/
       - node_modules/
 
-# variables:
-#   NPM_TOKEN: ${NPM_TOKEN}
+variables:
+  NPM_TOKEN: ${NPM_TOKEN}
   # NPM_TOKEN: ${CI_JOB_TOKEN}
 
 stages:
