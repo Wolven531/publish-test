@@ -18,6 +18,8 @@ default:
       - build/
       - node_modules/
 
+variables:
+  NPM_TOKEN: ${CI_JOB_TOKEN}
 # variables:
 #   NPM_TOKEN: $NPM_TOKEN
   # NPM_TOKEN: ${CI_JOB_TOKEN}
@@ -61,11 +63,11 @@ test:
 
 publish:
   stage: publish
-  before_script:
-    - |
-      {
-        echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=https://registry.npmjs.org:_authToken=${NPM_TOKEN}"
-      } | tee --append .npmrc
+  # before_script:
+  #   - |
+  #     {
+  #       echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=https://registry.npmjs.org:_authToken=${NPM_TOKEN}"
+  #     } | tee --append .npmrc
   script:
     # - pkg_name=$(node -p -e "require('./package.json').name")
     # - pkg_vers=$(node -p -e "require('./package.json').version")
@@ -73,5 +75,5 @@ publish:
     - pkg_vers=$(npm pkg get version)
     - echo "About to publish $pkg_name@$pkg_vers"
     - npm publish
-  variables:
-    NPM_TOKEN: $NPM_TOKEN
+  # variables:
+  #   NPM_TOKEN: $NPM_TOKEN
