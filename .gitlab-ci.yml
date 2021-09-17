@@ -19,7 +19,7 @@ default:
       - node_modules/
 
 variables:
-  NPM_TOKEN: ${NPM_TOKEN}
+  NPM_TOKEN: $NPM_TOKEN
   # NPM_TOKEN: ${CI_JOB_TOKEN}
 
 stages:
